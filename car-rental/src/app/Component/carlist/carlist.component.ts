@@ -28,6 +28,7 @@ export class CarlistComponent implements OnInit{
     onSaveCar() {
       debugger;
       if (this.carObj.carId == 0) {
+        this.carObj.carId = this.carList.length + 1;
         this.carList.unshift(this.carObj);
         localStorage.setItem(this.localKeyName,JSON.stringify(this.carList));
         this.carObj = new Car();
@@ -36,7 +37,6 @@ export class CarlistComponent implements OnInit{
 
   onReset() {
     this.carObj = new Car();
-    localStorage.clear();
     this.carList = [];
   }
 
